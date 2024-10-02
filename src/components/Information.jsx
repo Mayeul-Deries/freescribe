@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import Transcription from './Transcription'
 import Translation from './Translation'
 
-export default function Information() {
+export default function Information(props) {
+  const { output } = props
+  console.log(output)
   const [tab, setTab] = useState('transcription')
 
   return (
@@ -32,8 +34,8 @@ export default function Information() {
       </div>
 
       {tab === 'transcription' ? (
-        <Transcription /> ) :
-        (<Translation />)
+        <Transcription {...props} /> ) :
+        (<Translation {...props} />)
       }
     </main>
   )
